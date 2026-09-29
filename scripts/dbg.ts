@@ -1,0 +1,10 @@
+import sharp from "sharp";
+import { detectProduct } from "@moi/image-engine";
+import { maskToAlpha } from "../packages/image-engine/src/cutout";
+const det = await detectProduct(process.argv[2] ?? "tests/fixtures/samples/portrait-white.jpg");
+console.log(det.workWidth, det.workHeight, det.workBox, det.analysis);
+const a = await maskToAlpha(det, det.workBox, 500, 800);
+console.log(a.length, 500 * 800);
+await sharp(a, { raw: { width: 500, height: 800, channels: 1 } }).png().toFile(".tmp/alpha.png");
+const m = Buffer.from(det.mask.map((v) => (v ? 255 : 0)));
+await sharp(m, { raw: { width: det.workWidth, height: det.workHeight, channels: 1 } }).png().toFile(".tmp/mask.png");

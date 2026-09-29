@@ -1,0 +1,9 @@
+{
+  "name": "@moi/image-engine",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "main": "src/index.ts",
+  "types": "src/index.ts",
+  "dependencies": { "@moi/shared": "*", "@moi/marketplace-rules": "*", "@moi/validation": "*", "@moi/processing-queue": "*", "sharp": "^0.34.0" }
+}

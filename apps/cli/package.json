@@ -1,0 +1,8 @@
+{
+  "name": "@moi/cli",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "bin": { "marketplace-optimizer": "bin/marketplace-optimizer.mjs" },
+  "dependencies": { "@moi/shared": "*", "@moi/marketplace-rules": "*", "@moi/image-engine": "*", "tsx": "^4.19.0" }
+}
